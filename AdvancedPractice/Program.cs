@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
+using static Program;
 
 class Program
 {
     static void Main(string[] args)
     {
-        #region
+        #region 继承
         var mydog = new Dog();
         mydog.Name = "旺财";
         mydog.Eat();
@@ -19,6 +20,10 @@ class Program
 
         #endregion
 
+        #region 构造函数链
+        var myCar = new Car("XiaoMi");
+        Console.WriteLine($"Model: {myCar.Model}, Wheels: {myCar.Wheels}");
+        #endregion
 
 
         #region 泛型，装箱与不装箱的比较
@@ -63,4 +68,26 @@ class Program
     {
         public override void Speak() { Console.WriteLine("Meow");base.Speak(); }
     }
+
+    public class Vehicle
+    {
+        public int Wheels { get; }
+
+        public Vehicle(int wheels)
+        {
+            Wheels = wheels;
+
+        }
+    }
+    public class Car : Vehicle
+    {
+        public string Model { get; }
+        public Car(string model) : base(4)
+        {
+            Model = model;
+        }
+
+    }
+
+   
 }
