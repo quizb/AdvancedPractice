@@ -56,7 +56,7 @@ class Program
     
     public class Dog : Animal 
     {
-        public void barking() { Console.WriteLine("Wow! Wow!"); }
+        public void barking() { Console.WriteLine("Wow! Wow!!"); }
     }
 
     public class Cat : Animal
